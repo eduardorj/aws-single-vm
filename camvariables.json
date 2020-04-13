@@ -75,7 +75,7 @@
         "name": "aws_image",
         "type": "string",
         "description": "Operating system image id / template that should be used when creating the virtual image",
-        "default": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20200112",
+        "default": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-2020011",
         "hidden": false,
         "label": "Operating System ID",
         "secured": false,
@@ -97,32 +97,12 @@
         "name": "aws_ami_owner_id",
         "type": "string",
         "description": "AWS AMI Owner ID",
-        "default": "137112412989",
+        "default": "099720109477",
         "hidden": false,
         "label": "AWS AMI Owner ID",
         "secured": false,
         "required": true,
         "immutable": false
-    },
-    {
-        "description": "Name of the Virtual Private Cloud (VPC) this resource is going to be deployed into",
-        "hidden": false,
-        "immutable": false,
-        "label": "Virtual Private Cloud",
-        "name": "vpc_name_tag",
-        "required": true,
-        "secured": false,
-        "type": "string"
-    },
-    {
-        "description": "Subnet Name",
-        "hidden": false,
-        "immutable": false,
-        "label": "Subnet Name",
-        "name": "subnet_name",
-        "required": true,
-        "secured": false,
-        "type": "string"
     },
     {
         "description": "Name of the public SSH key used to connect to the virtual guest",

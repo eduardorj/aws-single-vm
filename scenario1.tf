@@ -21,34 +21,13 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "vpc_name_tag" {
-  description = "Name of the Virtual Private Cloud (VPC) this resource is going to be deployed into"
-}
 
-variable "subnet_name" {
-  description = "Subnet Name"
-}
 
 variable "aws_image_size" {
   description = "AWS Image Instance Size"
   default     = "t2.micro"
 }
 
-data "aws_vpc" "selected" {
-  state = "available"
-
-  filter {
-    name   = "tag:Name"
-    values = ["${var.vpc_name_tag}"]
-  }
-}
-
-data "aws_subnet" "selected" {
-  filter {
-    name   = "tag:Name"
-    values = ["${var.subnet_name}"]
-  }
-}
 
 variable "public_ssh_key_name" {
   description = "Name of the public SSH key used to connect to the virtual guest"
@@ -58,12 +37,7 @@ variable "public_ssh_key" {
   description = "Public SSH key used to connect to the virtual guest"
 }
 
-#Variable : AWS image name
-variable "aws_image" {
-  type        = "string"
-  description = "Operating system image id / template that should be used when creating the virtual image"
-  default     = "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20200112"
-}
+
 
 variable "aws_ami_owner_id" {
   description = "AWS AMI Owner ID"
@@ -73,11 +47,6 @@ variable "aws_ami_owner_id" {
 # Lookup for AMI based on image name and owner ID
 data "aws_ami" "aws_ami" {
   most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["${var.aws_image}*"]
-  }
 
   owners = ["${var.aws_ami_owner_id}"]
 }
@@ -93,6 +62,6 @@ resource "aws_instance" "orpheus_ubuntu_micro" {
 }
 
 # AMI Name ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20200112
-# AMI ID ami-0323c3dd2da7fb37d
-# Owner 137112412989
+# AMI ID ami-07ebfd5b3428b6f4d
+# Owner 099720109477
 # size t2.micro
