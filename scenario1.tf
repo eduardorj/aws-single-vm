@@ -89,9 +89,7 @@ resource "aws_key_pair" "orpheus_public_key" {
 
 resource "aws_instance" "orpheus_ubuntu_micro" {
   instance_type = "${var.aws_image_size}"
-  ami           = "${data.aws_ami.aws_ami.id}"
-  subnet_id     = "${data.aws_subnet.selected.id}"
-  key_name      = "${aws_key_pair.orpheus_public_key.id}"
+  ami           = "ami-07ebfd5b3428b6f4d"
 }
 
 # AMI Name ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20200112
