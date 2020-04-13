@@ -95,7 +95,7 @@ resource "aws_instance" "orpheus_ubuntu_micro" {
   tags          = "${module.camtags.tagsmap}"
 }
 
-# AMI Name amzn2-ami-hvm-2.0.20200406.0-x86_64-
+# AMI Name ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20200112
 # AMI ID ami-0323c3dd2da7fb37d
 # Owner 137112412989
 # size t2.micro
